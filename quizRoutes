@@ -1,0 +1,27 @@
+module.exports = app => {
+    app.post('/api/new-quiz', (req,res) => {
+        if(req.user.role === admin){
+            let quiz = new Quiz({
+
+            })
+            quiz.save()
+        }
+        res.send("You are not authorized")
+    })
+
+    app.get(/api/quiz/all, async(req,res) => {
+        let quiz = await Quiz.findAll(quiz)
+        res.send(quiz)
+    })
+
+    app.get('/api/quiz/:id', async(req,res) => {
+        let quiz = Quiz.findById(quiz, (req, res)=> {
+            res.send(quiz)
+        })
+    })
+
+    app.put('/api/quiz/:id', async(req,res) => {
+        let quiz = await Quiz.findById
+    })
+}
+
